@@ -7,8 +7,8 @@ require("dotenv").config();
 const { users, rols, funcionalidades } = require("./db.js");
 
 exports.getUsers = (req, res, next) => {
-   const result = users.map(user => user);
-    res.status(200).json({message:"all-items", result});
+  const result = users.map((user) => user);
+  res.status(200).json({ message: "all-items", result });
 };
 
 exports.createUser = async (req, res, next) => {
@@ -37,19 +37,21 @@ exports.createUser = async (req, res, next) => {
 };
 //this is okey!
 exports.getUserById = (req, res) => {
-  console.log(req.hostname)
+  console.log(req.hostname);
   const { id } = req.params;
-  const result = users.find(user => user.id === parseInt(id));
-  res.status(200).json({result, message: "user-by-id" });
+  const result = users.find((user) => user.id === parseInt(id));
+  res.status(200).json({ result, message: "gotten-by-id" });
 };
 
 exports.getUsersEnabled = (req, res, next) => {
+  
   const { enabled } = req.params;
-  const data = users.filter((item) => item.enabled === Boolean(enabled));
-  res.json(data);
+  const result = users.filter((user) => (user.enabled = true));
+  res.status(200).json({ message: "enabled", result });
 };
 
 exports.updateUser = async (req, res) => {
+  console.log(`this is url: ${req.url}`);
   const id = parseInt(req.params.id);
   const email = req.body.email;
   const password = req.body.password;
@@ -66,7 +68,7 @@ exports.updateUser = async (req, res) => {
 
   users[id - 1] = user;
   setTimeout(() => {
-    res.status(201).json({ message: "created" });
+    res.status(201).json({ message: "updated" });
   }, 500);
 };
 
@@ -77,10 +79,8 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
     let user = await users.find((user) => user.email === req.body?.email);
     if (
-      !email &&
-      !password ||
-      email !== user.email &&
-      password !== user.password
+      (!email && !password) ||
+      (email !== user.email && password !== user.password)
     ) {
       return res.status(400).json({ error: "bad-request" });
     }
@@ -117,8 +117,8 @@ exports.getUsersByRolEnabled = (req, res, next) => {
   const data = users.find(
     (user) => user.rolId === rolId && user.enabled === Boolean(enabled)
   );
-  
-  res.status(200).json({ result, message: "item-by-rol-enable" });
+
+  res.status(200).json({ result, message: "gotten-by-another" });
 };
 
 // $2b$10$cuM/dhSYL5d4g11xajb1Oufnu5f0LPiOZNRElaX694c0TbCWwI3LG

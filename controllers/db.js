@@ -112,12 +112,12 @@ const users = [
  const rols = [
 {
     id: 1,
-    name: 'admin',
+    name: "admin",
     enabled: false
 },
 {
     id: 2,
-    name:  'user',
+    name:  "user",
     enabled: true
 }
 ];   
@@ -125,12 +125,12 @@ const users = [
  const provincias = [
 {
     id: 1,
-    name:  'Mayabeque',
+    name:  "Mayabeque",
     enabled: false
 },
 {
     id: 2,
-    name:  'Habana',
+    name:  "Habana",
     enabled: true
 }
 ];   

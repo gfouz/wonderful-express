@@ -1,6 +1,6 @@
 const Router = require("express");
 const router = Router();
-const {isAuth} = require('../middlewares/authenticateToken.js');
+const {protected} = require('../middlewares/authenticateToken.js');
 const {httpParser} = require('../middlewares/bodyParser.js');
 const {
   getProvinces, 
@@ -32,8 +32,10 @@ const {
 const { 
   createUser, 
   getUsers, 
+  updateUser,
   loginUser, 
   getUserById, 
+  getUsersEnabled,
   getUsersByRolEnabled 
 }  = require("../controllers/UserController");
 
@@ -49,7 +51,7 @@ router.put("/provincias/:id", updateProvincia);
 
 
 // Rol Routes
-router.get("/rols", isAuth, getRols);
+router.get("/rols", getRols);
 router.get("/rols/:id", getRolById);
 router.get("/rols/enabled/:enabled", getRolsEnabled);
 router.post("/rols", createRol);
@@ -73,7 +75,10 @@ router.get("/users",getUsers);
 router.post("/users", createUser);
 router.post("/login", httpParser,loginUser);
 router.get("/users/:id", getUserById);
+router.put("/users/:id", updateUser);
+router.get("/users/enabled/:enabled", getUsersEnabled);
 router.get("/users/rol/:id/enabled/:enabled", getUsersByRolEnabled);
+
 
 
 
