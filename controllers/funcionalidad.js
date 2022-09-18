@@ -50,4 +50,5 @@ exports.createFuncionalidad = (req, res, next) => {
     res.status(201).json({ message: "created" });
   }, 500);
 };
-//exports.getFuncionalidadesByRol  = (req, res, next) => {};
+
+exports.getFuncionalidadesByRol  = (req, res) => {};

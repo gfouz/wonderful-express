@@ -1,11 +1,11 @@
-const express = require("express");
-const app = express();
+
 
 const { users, rols, funcionalidades, provincias } = require("./db.js");
 
 let provinciaIdCounter = provincias.length;
 
-exports.getProvinces = (req, res, next) => {
+exports.getProvinces = (req, res) => {
+  
   setTimeout(() => {
     const result = provincias.map((item) => item);
     res.status(200).json({ message: "all-items", result });
@@ -22,21 +22,25 @@ exports.createProvince = (req, res) => {
   res.status(201).json({ message: "created" });
 };
 //this is okey!
-exports.getProvinceById = (req, res, next) => {
+exports.getProvinceById = (req, res) => {
+  
   const { id } = req.params;
   const result = provincias.find((item) => item.id === parseInt(id));
-  res.status(200).json({ result, message: "gotten-by-id" });
+  setTimeout(()=>{
+    res.status(200).json({ result, message: "gotten-by-id" })
+  }, 500)
+  ;
 };
 
 exports.getProvinciasEnabled = (req, res) => {
-  console.log(`this is url: ${req.url}`);
-  const { enabled } = req.params;
 
-  const result = provincias.filter((item) => (item.enabled = true));
+  const { enabled } = req.body; 
+  const result = provincias.filter((item) => (item.enabled === true ));
   res.status(200).json({ result, message: "enabled" });
 };
 
 exports.updateProvincia = (req, res) => {
+
   const id = parseInt(req.params.id);
   const name = req.body.name;
   const enabled = req.body.enabled;
@@ -44,7 +48,7 @@ exports.updateProvincia = (req, res) => {
   const result = {
     id: id,
     name: req.body.name,
-    enabled: enabled,
+    enabled: Boolean(enabled),
   };
   provincias[id - 1] = result;
   res.status(201).json({ message: "updated" });

@@ -1,0 +1,42 @@
+EL PRESTADOR, se obliga a:
+a) Brindar los servicios criptográficos que se pacten en el presente Contrato y/o Suplementos
+al mismo, de acuerdo a los procedimientos y plazos establecidos en su DPC.
+b) Mantener actualizada la DPC en el sitio https://pki.segurmatica.cu/
+c) Garantizar que, al emitirse el o los certificados digitales, se le notifique al CLIENTE.
+d) Garantizar el acceso a los servicios de descarga de certificado digital, acceso al repositorio
+de certificado y validación en línea del estado de los certificados digitales.
+e) Mantener actualizadas las bases de datos del servicio de validación en línea. La
+actualización se realiza en un plazo no mayor a las 24 horas de producida la emisión,
+suspensión o revocación de un certificado.
+EL CLIENTE, se obliga a:
+a) Para las personas jurídicas nombrar Representantes Institucionales de los propietarios
+de certificados (Suscriptores), los cuales estarán facultados a realizar las solicitudes de
+los certificados digitales ante EL PRESTADOR, según modelo que aparece en el
+Anexo 1.
+b) Solicitar para los Representantes Institucionales de los propietarios de certificados
+(Suscriptores) un certificado digital.
+c) Conocer la DPC del PRESTADOR y cumplir todo lo establecido en cuanto a su solicitud,
+uso, renovación y revocación de los certificados.
+d) Garantizar el acceso a los servicios de: descarga de certificado digital, acceso al
+repositorio de certificados y validación en línea del estado de los certificados digitales
+proporcionados por EL PRESTADOR.
+e) Asumir la responsabilidad desde el momento de la entrega, de la custodia y uso
+apropiado del certificado digital, y su respectiva contraseña.
+f) Garantizar la integridad, privacidad y uso de sus criptomateriales.
+g) En el caso que sea certificado para firma digital entregar el CSR correspondiente a
+cada suscriptor. El cual deberá ser generado con la herramienta proporcionada por EL
+PRESTADOR para tales efectos.
+h) Solicitar el servicio en correspondencia con los modelos Anexos 2 y 3, según
+corresponda. En el caso del Anexo 2, deberá entregarlo a partir de su generación en la
+herramienta GENERADOR DE CSR, descargada del sitio https://pki.segurmatica.cu/.
+i) En caso de revocación deberá solicitarlo a través del formato reflejado en el Anexo 4
+www.segurmatica.cu
+OTRAS CONDICIONES:
+a) EL PRESTADOR se reserva hasta un máximo de 3 horas los sábados y
+domingos alternos y en el horario nocturno de lunes a viernes, para efectuar tareas de
+mantenimiento a la infraestructura de la PKI.
+b) EL PRESTADOR no se hace responsable de la demora en los tiempos de respuesta que
+ante problemas en la infraestructura tecnológica de EL CLIENTE puedan sobrevenir.
+c) EL PRESTADOR puede extinguir la vigencia de un certificado digital por cualquiera de las
+causales reflejadas en el ARTÍCULO 32 de la Resolución 2/2016 del MININT, expuesta en
+el sitio https://pki.segurmatica.cu/.

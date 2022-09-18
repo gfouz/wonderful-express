@@ -1,7 +1,6 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const { users, rols, funcionalidades } = require("./db.js");
-const { isToken } = require("./tokenParser.js");
 const app = express();
 require("dotenv").config();
 
@@ -32,11 +31,14 @@ exports.getRolById = (req, res) => {
 
 exports.getRolsEnabled = (req, res) => {
   const { enabled } = req.params;
+
+  //Boolean() works okey!
   const result = rols.filter((item) => item.enabled === Boolean(enabled));
   res.status(200).json({ result, message: "enabled" });
 };
 
 exports.updateRol = (req, res, next) => {
+  console.log("rol.....");
   const id = parseInt(req.params.id);
   const name = req.body.name;
   const enabled = req.body.enabled;
