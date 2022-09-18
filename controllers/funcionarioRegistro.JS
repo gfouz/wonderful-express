@@ -23,7 +23,7 @@ exports.getFuncionariosRegistroByName = (req, res) => {
   
   const result = funcionariosRegistro.find( item => item.name === name );
   setTimeout(()=>{
-    res.status(200).json({ result, message: "gotten-by-id" })
+    res.status(200).json({ result, message: "gotten-by-name" })
   }, 500);
 };
  
@@ -39,7 +39,7 @@ exports.getFuncionarioRegistroById = (req, res) => {
 
 exports.getFuncionariosRegistroEnabled = (req, res) => {
   const result = funcionariosRegistro.filter((item) => (item.enabled === true ));
-  res.status(200).json({ result, message: "enabled" });
+  res.status(200).json({ result, message: "all-enabled" });
 };
 
 exports.createFuncionarioRegistro = (req, res) => {

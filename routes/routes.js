@@ -8,6 +8,7 @@ const {
   createProvince,
   getProvinceById,
   updateProvincia,
+  getProvinciasByName,
   getProvinciasEnabled,
 } = require("../controllers/provincia");
 
@@ -123,6 +124,8 @@ router.get("/provincias/:id", getProvinceById);
 router.get("/provincias/enabled/:enabled", getProvinciasEnabled);
 router.post("/provincias", createProvince);
 router.put("/provincias/:id", updateProvincia);
+router.get("/provincias/name/:name", getProvinciasByName);
+
 
 router.get("/estados", getEstados);
 router.get("/estados/:id", getEstadoById);
