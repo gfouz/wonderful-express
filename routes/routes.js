@@ -17,7 +17,7 @@ const {
   getEmpresaInstitucionById,
   getEmpresasInstituciones,
   getEmpresasInstitucionesByMunByOrg,
-  getEmpresasInstitucionesByMunByOrgEnabled,
+  getEmpresasInstitucionesByName,
   getEmpresasInstitucionesEnabled,
   updateEmpresaInstitucion,
 } = require("../controllers/empresasIntituciones");
@@ -177,7 +177,7 @@ router.post("/municipios", createMunicipio);
 router.put("/municipios/:id", updateMunicipio);
 
 router.get("/tarifas", getTarifas);
-router.get("/tarifas/:id", getTarifas);
+router.get("/tarifas/:id", getTarifaById);
 router.post("/tarifas", createTarifa);
 router.put("/tarifas/:id", updateTarifa);
 router.get("/tarifas/enabled/:enabled", getTarifasEnabled);
@@ -187,15 +187,15 @@ router.get("/empresas-instituciones/", getEmpresasInstituciones);
 
 router.get("/empresas-instituciones/:id", getEmpresaInstitucionById);
 
+router.get("/empresas-instituciones/name/:name", getEmpresasInstitucionesByName);
+
+
 router.get(
-  "/empresas-instituciones/municipio/",
+  "/empresas-instituciones/municipio/:id/organismo/:id2",
   getEmpresasInstitucionesByMunByOrg
 );
 
-router.get(
-  "/empresas-instituciones/municipio/organismo/enabled/:enabled",
-  getEmpresasInstitucionesByMunByOrgEnabled
-);
+
 router.get(
   "/empresas-instituciones/enabled/:enabled",
   getEmpresasInstitucionesEnabled

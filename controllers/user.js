@@ -15,7 +15,7 @@ exports.getUsers = (req, res, next) => {
 
 exports.createUser = async (req, res, next) => {
   
-  const { email, password, rolid } = req.body;
+  const { email, password, rolId } = req.body;
   const isEmailExist = users.some((user) => user.email === email);
 
   if (!isEmailExist) {
@@ -28,7 +28,7 @@ exports.createUser = async (req, res, next) => {
     email: email,
     password: hashedpassword,
     enabled: true,
-    rolId: rolid,
+    rolId: rolId,
   };
   users.push(user);
   res.status(201).json({ message: "created" });
@@ -39,7 +39,6 @@ exports.createUser = async (req, res, next) => {
 };
 //this is okey!
 exports.getUserById = (req, res) => {
-  console.log(req.hostname);
   const { id } = req.params;
   const result = users.find((user) => user.id === parseInt(id));
   res.status(200).json({ result, message: "gotten-by-id" });

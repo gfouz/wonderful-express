@@ -12,9 +12,23 @@ exports.getEmpresasInstituciones = (req, res) => {
 };
 
 exports.getEmpresasInstitucionesByMunByOrg = (req, res) => {
+
+  const munId = parseInt(req.params.id);
+  const orgId = parseInt(req.params.id2);
+
+  const EmpByMunId = empresasInstituciones.filter(item => item.municipioId == parseInt(munId) );
+  const EmpByOrg = EmpByMunId.filter( item => item.organismoId == parseInt(orgId) );
   setTimeout(() => {
-    const result = empresasInstituciones.map((item) => item);
+    const result = EmpByOrg.map((item) => item);
     res.status(200).json({ message: "all-items", result });
+  }, 500);
+};
+
+exports.getEmpresasInstitucionesByName = (req, res) => {
+  const name = req.params.name;
+  const result = empresasInstituciones.find( item => item.name === name );
+  setTimeout(()=>{
+    res.status(200).json({ result, message: "gotten-by-name" })
   }, 500);
 };
 

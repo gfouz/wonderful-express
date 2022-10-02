@@ -13,7 +13,7 @@ exports.getProvinces = (req, res) => {
 };
 exports.getProvinciasByName = (req, res) => {
   const name = req.params.name;
-  
+  console.log(name)
   const result = provincias.find( item => item.name === name );
   setTimeout(()=>{
     res.status(200).json({ result, message: "gotten-by-name" })

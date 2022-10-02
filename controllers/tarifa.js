@@ -23,6 +23,7 @@ exports.getTarifasByFinalidad = (req, res) => {
 
 
 exports.getTarifaById = (req, res) => {
+  console.log(req.params);
   const { id } = req.params;
   const result = tarifas.find((item) => item.id === parseInt(id));
   setTimeout(()=>{
@@ -41,7 +42,7 @@ exports.getTarifasEnabled = (req, res) => {
 
 exports.createTarifa = (req, res) => {
 
-    console.log("creating tarifas");
+  
     console.log(req.body);
 
 	  const time = parseInt(req.body.time);
@@ -58,26 +59,27 @@ exports.createTarifa = (req, res) => {
     enabled: true
   };
   tarifas.push(result);
-  res.status(201).json({ message: "updated" });
+  res.status(201).json({ message: "created" });
 }
 
 
 
 exports.updateTarifa = (req, res) => {
-
+    console.log(req.body)
 	  const id = parseInt(req.params.id);
     const time = parseInt(req.body.time);
     const price = parseFloat(req.body.price);
     const range = req.body.range;
     const finalidadId = parseInt(req.body.finalidadId);
-    const enabled = req.body.enabled;
+    const enabled = Boolean(req.body.enabled);
 
     const result = {
+    id: id,  
     time: time,
     price: price,
     range: range,
     finalidadId: finalidadId,
-    enabled: true
+    enabled: enabled
     };
     tarifas[id - 1] = result;
     res.status(201).json({ message: "updated" });

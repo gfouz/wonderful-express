@@ -45,10 +45,9 @@ exports.getRepresentantesByName = (req, res) => {
 
 exports.getRepresentanteById = (req, res) => {
   const id = parseInt(req.params.id);
+  console.log(`this is ${id}`)
   const result = representantes.find((item) => item.id === id );
-  if(result == undefined)
-  { res.status(400).json({ result, error: "Not-found" });}
-  else {res.status(200).json({ result, message: "found by id" });}
+  res.status(200).json({ result, message: "found by id" });
 }
 
 
@@ -69,6 +68,7 @@ exports.createRepresentante = (req, res) => {
     const namerCharge = req.body.namerCharge;
     const eiId = parseInt(req.body.eiId);
     const userId = req.body.userId;
+    const enabled = req.body.enabled;
 
     const representante = {
     id: ++representanteId,
@@ -81,7 +81,7 @@ exports.createRepresentante = (req, res) => {
     namerCharge: namerCharge,
     eiId: eiId,
     userId: userId,
-    enabled: true,
+    enabled: enabled,
   };
   representantes.push(representante);
   res.status(201).json({ message: "created" });
@@ -93,6 +93,7 @@ exports.updateRepresentante = (req, res) => {
     const id = parseInt(req.params.id);
     const ci = parseInt(req.body.ci);
     const tome = parseInt(req.body.tome);
+    const enabled = parseInt(req.body.enabled);
     const folio = parseInt(req.body.folio);
     const name = req.body.name;
     const phone = req.body.phone;
@@ -112,7 +113,7 @@ exports.updateRepresentante = (req, res) => {
     namerCharge: namerCharge,
     eiId: eiId,
     userId: userId,
-    enabled: true,
+    enabled: enabled,
   };
 
   representantes[id - 1] = result;
