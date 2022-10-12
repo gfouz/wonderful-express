@@ -13,7 +13,13 @@ const users = [
     rolId: 2,
     enabled: true,
   },
-
+  {
+    id: 3,
+    email: "laura@nauta.cu",
+    password: "$2b$10$ylLLfYw8tUQG0Vl479tOmuyk8PfPVZCMSXfpw/B4p/5CilUbLEJ9K",
+    rolId: 2,
+    enabled: true,
+  },
 ];
 
 
@@ -64,92 +70,128 @@ const propositos = [
 const funcionalidades = [
   {
     id: 1,
-    name: "Admin.. Provincias",
+    rolId: 1,
+    name: "Administrar Provincias",
+    path: "/provincias",
     enabled: true,
   },
   {
     id: 2,
-    name: "Admin.. Organismos",
+    rolId: 1,
+    name: "Administrar Organismos",
+    path: "/organismos", 
     enabled: true,
   },
   {
     id: 3,
-    name: "Admin.. Rols",
+    rolId: 1,
+    name: "Administrar rols",
+    path: "/rols",
     enabled: true,
   },
   {
     id: 4,
-    name: "Admin.. Estados",
+    rolId: 1,
+    name: "Administrar estados",
+    path: "/estados",
     enabled: true,
   },
   {
     id: 5,
-    name: "Admin.. Funcionalidades",
+    rolId: 1,
+    name: "Administrar funcionalidades",
+    path: "/funcionalidades",
     enabled: true,
   },
   {
     id: 6,
-    name: "Admin.. Usuarios",
+    rolId: 1,
+    name: "Administrar usuarios",
+    path: "/usuarios",
     enabled: true,
   },
   {
     id: 7,
-    name: "Admin.. Municipios",
+    rolId: 2,
+    name: "Administrar municipios",
+    path: "/municipios",
     enabled: true,
   },
   {
     id: 8,
-    name: "Admin.. Empresas o Instituciones",
+    rolId: 2,
+    name: "Administrar empresas e instituciones",
+    path: "/empresas-instituciones",
     enabled: true,
   },
   {
     id: 9,
-    name: "Admin.. Representantes",
+    rolId: 2,
+    name: "Administrar representantes",
+    path: "/representante",
     enabled: true,
   },
   {
     id: 10,
-    name: "Administrar Entidades de Registro",
+    rolId: 2,
+    name: "Administrar entidades de registro",
+    path: "/entidades-registro",
     enabled: true,
   },
   {
     id: 11,
-    name: "Solicitar Generación de un Certificado",
+    rolId: 2,
+    name: "Solicitar generación de un certificado",
+    path: "/generacion",
     enabled: true,
   },
   {
     id: 12,
-    name: "Solicitar Renovación de un Certificado",
+    rolId: 2,
+    name: "Solicitar renovación de un certificado",
+    path: "/renovacion",
     enabled: true,
   },
   {
     id: 13,
-    name: "Solicitar Revocación de un Certificado",
+    rolId: 3,
+    name: "Solicitar revocación de un certificado",
+    path: "revocacion",
     enabled: true,
   },
   {
     id: 14,
-    name: "Administrar Funcionarios de Entidades de Registro",
+    rolId: 3,
+    name: "Administrar funcionarios de entidad de registro",
+    path: "/funcionario-registro",
     enabled: true,
   },
   {
     id: 15,
-    name: "Validar Solicitudes como Entidad de Registro",
+    rolId: 3,
+    name: "Validar solicitudes como entidad de registro",
+    path: "/solicitudes-registro",
     enabled: true,
   },
   {
     id: 16,
-    name: "Administrar Tarifas",
+    rolId: 3,
+    name: "Administrar tarifas",
+    path: "/tarifas",
     enabled: true,
   },
   {
     id: 17,
-    name: "Consultar Solicitudes",
+    rolId: 3,
+    name: "Consultar solicitudes",
+    path: "/solicitudes",
     enabled: true,
   },
   {
     id: 18,
-    name: "Validar Solicitudes como Representante",
+    rolId: 3,
+    name: "Validar solicitudes como representante",
+    path: "/solicitudes-representante",
     enabled: true,
   },
 ];
@@ -159,17 +201,17 @@ const funcionalidades = [
 const rols = [
   {
     id: 1,
-    name: "administrador",
+    name: "administrador1",
     enabled: true,
   },
   {
     id: 2,
-    name: "segundo admin",
+    name: "administrador2",
     enabled: true,
   },
   {
     id: 3,
-    name: "tercer administrador",
+    name: "administrador3",
     enabled: true,
   },
   {
@@ -332,7 +374,10 @@ const estados = [
 ];
 
 const finalidades = [
-  { id: 1, name: "Para firma digital de mensajería y ficheros electrónicos" },
+  { 
+    id: 1, 
+    name: "Para firma digital de mensajería y ficheros electrónicos", 
+  },
   {
     id: 2,
     name: "Para la protección de canales y servicios de comunicaciones",

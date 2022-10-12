@@ -65,7 +65,7 @@ const {
   loginUser,
   getUserById,
   getUsersEnabled,
-  getUsersByRolEnabled,
+  getUsersByRol,
 } = require("../controllers/user");
 
 const {
@@ -105,6 +105,7 @@ const {
 } = require("../controllers/funcionarioRegistro");
 
 const {
+  exportPdf,
   createRepresentante,
   getRepresentanteById,
   getRepresentantes,
@@ -134,7 +135,7 @@ router.post("/estados", createEstado);
 router.put("/estados/:id", updateEstado);
 
 // Rol Routes
-router.get("/rols", protected, getRols);
+router.get("/rols", getRols);
 router.get("/rols/:id", getRolById);
 router.get("/rols/enabled/:enabled", getRolsEnabled);
 router.post("/rols", createRol);
@@ -162,7 +163,7 @@ router.post("/login", httpParser, loginUser);
 router.get("/users/:id", getUserById);
 router.put("/users/:id", updateUser);
 router.get("/users/enabled/:enabled", getUsersEnabled);
-router.get("/users/rol/:id/enabled/:enabled", getUsersByRolEnabled);
+router.get("/users/rol/:id", getUsersByRol);
 
 // Municipio Routes
 router.get("/municipios", getMunicipios);
@@ -241,6 +242,8 @@ router.get(
 router.get("/representantes/enabled/:enabled", getRepresentantesEnabled);
 router.post("/representantes", createRepresentante);
 router.put("/representantes/:id", updateRepresentante);
+router.get("/representantes/export/:ci", exportPdf);
+
 
 // Condition Routes
 router.get("/condiciones", getConditions);

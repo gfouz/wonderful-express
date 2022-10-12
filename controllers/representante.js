@@ -121,4 +121,13 @@ exports.updateRepresentante = (req, res) => {
 }
 
 
+exports.exportPdf = (req, res) => {
+  try {
+    const ci = parseInt(req.params.ci);
+    res.download(`./data/nominationTemplate/${ci}.pdf`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 

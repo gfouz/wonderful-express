@@ -70,7 +70,6 @@ exports.updateUser = async (req, res) => {
   }, 500);
 };
 
-//exports.getUsersByRol = (req, res) => {};
 
 exports.loginUser = async (req, res) => {
   try {
@@ -97,8 +96,8 @@ exports.loginUser = async (req, res) => {
           expiresIn: "1h",
         }
       );
-
-      res.status(202).json({ jwt: token, message: "accepted" });
+      
+      res.status(202).json({ jwt: token, user, message: "accepted" });
     } else {
       return res.status(401).json({ message: "not-authorized" });
     }
@@ -107,15 +106,12 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-//exports.logoutUser = (req, res, next) => {};
 
-// this is very bad
-exports.getUsersByRolEnabled = (req, res, next) => {
+exports.getUsersByRol = (req, res, next) => {
+
   const rolId = parseInt(req.params.id);
-  const enabled = req.params.enabled;
-  const data = users.find(
-    (user) => user.rolId === rolId && user.enabled === Boolean(enabled)
-  );
+  console.log(`this is rolId: ${rolId}`);
+  const result = users.filter( (user) => user.rolId === rolId );
 
   res.status(200).json({ result, message: "gotten-by-another" });
 };
